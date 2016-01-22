@@ -2,7 +2,6 @@ package by.ntishkevich.service;
 
 import by.ntishkevich.domain.Message;
 import by.ntishkevich.repository.MessageRepository;
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -22,15 +21,19 @@ import java.util.List;
 public class MessageCGLIBService {
 
     @PostConstruct
-    public void postConstruct() {
+    void postConstruct() {
         System.out.println("messageCGLIBService constructed cglib");
     }
 
     @Autowired
     private MessageRepository messageRepository;
 
+    @Autowired
+    private AnotherCGLIBService anotherCGLIBService;
+
     @Transactional
     public List<Message> findAll() {
+        anotherCGLIBService.doNothind();
         return messageRepository.findAllCustom();
     }
 }

@@ -21,9 +21,6 @@ public class SpringProxyStackoverflowController {
     @Autowired
     private MessageDynamicProxyService messageDynamicProxyService;
 
-//    @Autowired
-//    private MessageCGLIBService messageCGLIBService;
-
     @Autowired private ApplicationContext applicationContext;
 
     @RequestMapping(path = "/dynamic/all", method = RequestMethod.GET)
